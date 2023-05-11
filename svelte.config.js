@@ -10,9 +10,8 @@ const config = {
 		vitePreprocess(),
 		preprocess({
 			postcss: true,
-
 			scss: {
-				prependData: '@use "src/variables.scss" as *;'
+				prependData: '@use "src/lib/styles/variables.scss" as *;'
 			}
 		})
 	],
