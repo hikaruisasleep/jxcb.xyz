@@ -5,6 +5,9 @@ const config = {
 		extend: {
 			height: {
 				screen: '100svh'
+			},
+			fontFamily: {
+				sans: ['"Wix Madefor Display"', '"Helvetica Neue"', '"Noto Sans"', 'sans-serif']
 			}
 		}
 	},
