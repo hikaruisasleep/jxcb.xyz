@@ -15,11 +15,21 @@ const config = {
 			keyframes: {
 				slideUpFade: {
 					'0%': {
-						transform: 'translateY(1rem)',
+						translate: '0 1rem',
 						opacity: '0'
 					},
 					'100%': {
-						transform: 'translateY(0)',
+						translate: '0 0',
+						opacity: '1'
+					}
+				},
+				slideDownFade: {
+					'0%': {
+						translate: '0 -1rem',
+						opacity: '0'
+					},
+					'100%': {
+						translate: '0 0',
 						opacity: '1'
 					}
 				}
