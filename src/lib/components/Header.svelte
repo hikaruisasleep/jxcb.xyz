@@ -10,7 +10,7 @@
 			<a href="/{pageName}" class="text-center flex flex-col sm:flex-row text-lg sm:text-3xl">
 				jxcb ፤ project
 				<span
-					class="bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text text-transparent text-center text-3xl -translate-y-2"
+					class="bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text text-transparent text-center text-3xl -translate-y-2 sm:translate-y-0"
 				>
 					{pageName}
 				</span>
@@ -20,7 +20,7 @@
 		{/if}
 	</p>
 	<div class="fa-solid fa-bars fa-2xl sm:fa-xl lg:hidden fixed top-10 sm:top-8 left-4" />
-	<nav class="overflow-hidden transition-all lg:h-auto p-0 -mt-2">
+	<nav class="overflow-hidden transition-all lg:h-auto p-0 -mt-2 sm:m-0">
 		<ul class="text-lg flex flex-row justify-center items-center gap-5">
 			<li
 				class="hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
@@ -38,13 +38,15 @@
 
 <style lang="scss">
 	header {
-		.transition-all {
-			height: 0;
-			transition-duration: 500ms;
-		}
-		.fa-bars:hover + .transition-all {
-			padding-top: 0.5rem;
-			height: 2rem;
+		@media (max-width: 1024px) {
+			.transition-all {
+				height: 0;
+				transition-duration: 500ms;
+			}
+			.fa-bars:hover + .transition-all {
+				padding-top: 0.5rem;
+				height: 2rem;
+			}
 		}
 	}
 </style>
