@@ -9,6 +9,8 @@
 		jxcb
 		{$page.url.pathname.split('/').at(-1) ? `| ${$page.url.pathname.split('/').at(-1)}` : ''}
 	</title>
+
+	<meta name="description" content="jxcb's personal website" />
 </svelte:head>
 
 <slot />
