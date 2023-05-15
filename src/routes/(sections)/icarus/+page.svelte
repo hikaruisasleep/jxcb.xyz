@@ -1,4 +1,4 @@
-<h1 class="text-2xl">Project-Hikaru</h1>
+<h1 class="text-2xl">Project-Icarus</h1>
 <hr />
 <section class="flex flex-initial justify-between">
 	<p>Nothing available yet. Stay tuned!</p>
