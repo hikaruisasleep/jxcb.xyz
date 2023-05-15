@@ -10,5 +10,14 @@
 	<Header
 		pageName={$page.url.pathname.split('/').at(1) ? `${$page.url.pathname.split('/').at(1)}` : ''}
 	/>
-	<slot />
+	<main>
+		<slot />
+	</main>
 </div>
+
+<style lang="scss">
+	main {
+		width: min(65ch, 100% - 2rem);
+		margin: 0.5rem auto;
+	}
+</style>
