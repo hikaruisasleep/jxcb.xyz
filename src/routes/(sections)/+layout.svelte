@@ -17,7 +17,7 @@
 
 <style lang="scss">
 	main {
-		width: min(65ch, 100% - 2rem);
+		width: min(85ch, 100% - 3rem);
 		margin: 0.5rem auto;
 	}
 </style>
