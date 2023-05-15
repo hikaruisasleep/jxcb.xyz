@@ -1,32 +1,41 @@
 <div class="bg fixed inset-0 h-screen w-full -z-30">
-	<span class="block relative gradient w-full h-full z-30" />
-	<div class="decorations fixed inset-0 h-screen w-full -z-20 grid place-items-center">
-		<div
-			class="w-[60vw] aspect-square lg:w-[40vw] fixed -bottom-[30vw] lg:bottom-auto lg:-right-[20vw] animate"
-		>
-			<svg viewBox="0 0 200 200">
-				<g class="fill-transparent stroke-1 stroke-slate-900">
-					<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
-				</g>
-			</svg>
+	<span class="block relative gradient w-full h-full -z-10" />
+	<div class="decorations fixed inset-0 h-screen w-full grid place-items-center">
+		<div class="rotating-circles fixed inset-0 h-screen w-full grid place-items-center -z-20">
+			<div
+				class="w-[60vw] aspect-square lg:w-[40vw] fixed -bottom-[30vw] lg:bottom-auto lg:-right-[20vw] animate"
+			>
+				<svg viewBox="0 0 200 200">
+					<g class="fill-transparent stroke-1 stroke-slate-900">
+						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
+					</g>
+				</svg>
+			</div>
+			<div
+				class="w-[40vw] aspect-square lg:w-[25vw] fixed -bottom-[20vw] lg:bottom-auto lg:-right-[12.5vw] animate-reverse"
+			>
+				<svg viewBox="0 0 200 200" class="-rotate-45">
+					<g class="fill-transparent stroke-1 stroke-slate-900">
+						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
+					</g>
+				</svg>
+			</div>
+			<div
+				class="w-[20vw] aspect-square lg:w-[10vw] fixed -bottom-[10vw] lg:bottom-auto lg:-right-[5vw] animate"
+			>
+				<svg viewBox="0 0 200 200" class="rotate-90">
+					<g class="fill-transparent stroke-1 stroke-slate-900">
+						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
+					</g>
+				</svg>
+			</div>
 		</div>
 		<div
-			class="w-[40vw] aspect-square lg:w-[25vw] fixed -bottom-[20vw] lg:bottom-auto lg:-right-[12.5vw] animate-reverse"
+			class="shooting-stars inset-0 h-[50vh] w-[150%] grid place-items-center -translate-y-[50%] -rotate-45 lg:-translate-y-[25%] lg:-translate-x-[20%] lg:z-0 lg:h-[200vh]"
 		>
-			<svg viewBox="0 0 200 200" class="-rotate-45">
-				<g class="fill-transparent stroke-1 stroke-slate-900">
-					<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
-				</g>
-			</svg>
-		</div>
-		<div
-			class="w-[20vw] aspect-square lg:w-[10vw] fixed -bottom-[10vw] lg:bottom-auto lg:-right-[5vw] animate"
-		>
-			<svg viewBox="0 0 200 200" class="rotate-90">
-				<g class="fill-transparent stroke-1 stroke-slate-900">
-					<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
-				</g>
-			</svg>
+			{#each Array.from(Array(20)) as _}
+				<div class="star" />
+			{/each}
 		</div>
 	</div>
 </div>
@@ -179,6 +188,115 @@
 
 		.animate-reverse {
 			animation: blurToBlur 500ms ease-out both, rotate 5s linear infinite reverse;
+		}
+
+		.star {
+			$shooting-time: 3000ms;
+
+			$color-b: rgb(30 41 59);
+			$color-w: rgb(212 212 216);
+
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			height: 2px;
+			background: linear-gradient(-45deg, $color-b, rgb(0 0 255 / 0));
+			@media (min-width: 1024px) {
+				background: linear-gradient(-45deg, $color-w, rgb(0 0 255 / 0));
+			}
+			border-radius: 100%;
+			filter: drop-shadow(0 0 6px $color-b) blur(2px);
+			@media (min-width: 1024px) {
+				filter: drop-shadow(0 0 6px $color-w) blur(2px);
+			}
+			animation: tail $shooting-time ease-in-out infinite reverse,
+				shooting $shooting-time ease-in-out infinite reverse;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: calc(50% - 1px);
+				right: 100%;
+				// width: 30px;
+				height: 3px;
+				background: linear-gradient(-45deg, rgb(0 0 255 / 0), $color-b, rgb(0 0 255 / 0));
+				@media (min-width: 1024px) {
+					background: linear-gradient(-45deg, rgb(0 0 255 / 0), $color-w, rgb(0 0 255 / 0));
+				}
+				transform: translateX(50%) rotateZ(45deg);
+				border-radius: 100%;
+				animation: shining $shooting-time ease-in-out infinite;
+			}
+			&::after {
+				// CodePen Error
+				// @extend .shooting_star::before;
+				content: '';
+				position: absolute;
+				top: calc(50% - 1px);
+				right: 100%;
+				// width: 30px;
+				height: 3px;
+				background: linear-gradient(-45deg, rgb(0 0 255 / 0), $color-b, rgb(0 0 255 / 0));
+				@media (min-width: 1024px) {
+					background: linear-gradient(-45deg, rgb(0 0 255 / 0), $color-w, rgb(0 0 255 / 0));
+				}
+				transform: translateX(50%) rotateZ(45deg);
+				border-radius: 100%;
+				animation: shining $shooting-time ease-in-out infinite;
+				transform: translateX(50%) rotateZ(-45deg);
+			}
+
+			@for $i from 1 through 20 {
+				&:nth-child(#{$i}) {
+					$delay: random(10000) + 30ms;
+					top: calc(50% - #{random(400) - 200px});
+					left: calc(50% - #{random(300) + 0px});
+					animation-delay: $delay;
+
+					&::before,
+					&::after {
+						animation-delay: $delay;
+					}
+				}
+			}
+
+			@keyframes tail {
+				0% {
+					width: 0;
+				}
+
+				30% {
+					width: 100px;
+				}
+
+				100% {
+					width: 0;
+				}
+			}
+
+			@keyframes shining {
+				0% {
+					width: 0;
+				}
+
+				50% {
+					width: 30px;
+				}
+
+				100% {
+					width: 0;
+				}
+			}
+
+			@keyframes shooting {
+				0% {
+					transform: translateX(0);
+				}
+
+				100% {
+					transform: translateX(300px);
+				}
+			}
 		}
 	}
 </style>
