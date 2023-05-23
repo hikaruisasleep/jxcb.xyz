@@ -4,13 +4,16 @@ const config = {
 	theme: {
 		extend: {
 			height: {
-				screen: '100svh'
+				screen: '100dvh'
 			},
 			maxHeight: {
-				screen: '100svh'
+				screen: '100dvh'
 			},
 			fontFamily: {
 				sans: ['"Wix Madefor Display"', '"Helvetica Neue"', '"Noto Sans"', 'sans-serif']
+			},
+			transition: {
+				all: 'all cubic-bezier(0.8, 0, 0.2, 1) 450ms'
 			},
 			keyframes: {
 				slideUpFade: {

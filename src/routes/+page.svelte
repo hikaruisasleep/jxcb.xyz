@@ -1,3 +1,9 @@
+<script lang="ts">
+	import viewport from '$lib/actions/useViewportAction';
+
+	let heroIntersection: boolean;
+</script>
+
 <div class="bg fixed inset-0 h-screen w-full -z-30">
 	<span class="block relative gradient w-full h-full -z-10" />
 	<div class="decorations fixed inset-0 h-screen w-full grid place-items-center">
@@ -39,20 +45,36 @@
 		</div>
 	</div>
 </div>
-<section class="hero h-screen">
-	<div class="container min-h-full min-w-full select-none">
+
+<main class="hero h-screen relative snap-start">
+	<div
+		class="intersection-observer absolute top-0 h-[30lvh] lg:h-[40vh]"
+		use:viewport
+		on:enterViewport={() => (heroIntersection = true)}
+		on:exitViewport={() => (heroIntersection = false)}
+	/>
+	<div class="container min-h-full min-w-full select-none static">
 		<header
-			class="hidden lg:flex flex-row-reverse flex-initial justify-between items-center px-24 py-3 fixed inset-[0_0_auto] max-h-min min-w-full translate-y-[0.2rem]"
+			class="hidden lg:flex flex-row flex-initial justify-between items-center px-24 py-3 fixed inset-[0_0_auto] max-h-min min-w-full transition-all duration-500 z-10"
+			class:bg-slate-800={!heroIntersection}
 		>
+			<p
+				class="hidden lg:inline text-3xl text-white opacity-0 font-extrabold font-[Prompt] hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all duration-500"
+				class:opacity-100={!heroIntersection}
+			>
+				<a href="#">jxcb</a>
+			</p>
 			<nav>
 				<ul class="text-lg flex flex-row justify-center items-center gap-5">
 					<li
-						class="hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
+						class="text-white bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
+						class:text-black={heroIntersection}
 					>
-						<a href="/">home</a>
+						<a href="#">home</a>
 					</li>
 					<li
-						class="hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
+						class="text-white bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
+						class:text-black={heroIntersection}
 					>
 						<a href="/about">about</a>
 					</li>
@@ -74,6 +96,17 @@
 				>
 					jxcb
 				</h1>
+				<div
+					class="title-sub flex flex-row text-base animate-in text-[rgb(255_255_255_/_0.5)] -translate-y-[2rem] translate-x-1 lg:text-xl lg:translate-x-20 lg:-translate-y-10"
+				>
+					<span>(</span>
+					<p>pronounced</p>
+					<div class="rotate-effect m-0 p-0">
+						<p class="inline absolute min-w-max">ja · cob</p>
+						<p class="absolute min-w-max">/ˈdʒeɪkəb/</p>
+					</div>
+					<span class="close">)</span>
+				</div>
 			</div>
 			<div class="text-lg">
 				<ul
@@ -82,36 +115,66 @@
 					<li
 						class="animate-in hover:-translate-y-1 hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
 					>
-						<a href="icarus">frontend developer · ui designer</a>
+						<a href="#icarus">frontend developer · ui designer</a>
 					</li>
 					<li
 						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
 					>
-						<a href="kreideprinz">computer science student</a>
+						<a href="#kreideprinz">computer science student</a>
 					</li>
 					<li
 						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
 					>
-						<a href="crystallize">motion designer · photographer</a>
+						<a href="#crystallize">motion designer · photographer</a>
 					</li>
 					<li
 						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
 					>
-						<a href="hikaru">bedroom producer · vocal synth user</a>
+						<a href="#hikaru">bedroom producer · vocal synth user</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
+</main>
+<section id="icarus" class="h-screen w-full snap-start snap-always">
+	<div
+		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 transition-all"
+		class:bg-opacity-0={heroIntersection}
+		class:bg-opacity-40={!heroIntersection}
+	>
+		icarus
+	</div>
+</section>
+<section id="kreideprinz" class="h-screen w-full snap-start snap-always">
+	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
+		kreideprinz
+	</div>
+</section>
+<section id="crystallize" class="h-screen w-full snap-start snap-always">
+	<div
+		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 bg-opacity-40"
+	>
+		crystallize
+	</div>
+</section>
+<section id="hikaru" class="h-screen w-full snap-start snap-always">
+	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
+		hikaru
+	</div>
 </section>
 
 <svg class="h-0 w-0">
 	<filter id="grain">
-		<feTurbulence type="turbulence" baseFrequency="0.65" />
+		<feTurbulence type="turbulence" baseFrequency="0.5" />
 	</filter>
 </svg>
 
 <style lang="scss">
+	:global(html) {
+		scroll-snap-type: y mandatory;
+	}
+
 	.bg {
 		&::before,
 		&::after {
@@ -132,11 +195,10 @@
 
 		.gradient {
 			background: linear-gradient(to right, rgb(30 41 59) 0, rgb(212 212 216 / 0) 15% 100%);
-		}
-
-		@media (min-width: 1024px) {
-			.gradient {
-				background: linear-gradient(to right, rgb(30 41 59) 0 47.5%, rgb(212 212 216 / 0) 100%);
+			@media (min-width: 1024px) {
+				& {
+					background: linear-gradient(to right, rgb(30 41 59) 0 47.5%, rgb(212 212 216 / 0) 100%);
+				}
 			}
 		}
 	}
@@ -144,11 +206,46 @@
 	.title {
 		.title-main {
 			-webkit-text-stroke: 2px black;
+
+			@media (min-width: 1024px) {
+				& {
+					-webkit-text-stroke: 2px white;
+				}
+			}
 		}
 
-		@media (min-width: 1024px) {
-			.title-main {
-				-webkit-text-stroke: 2px white;
+		.title-sub {
+			& * {
+				transition: all 150ms ease-in-out;
+			}
+			.rotate-effect {
+				transform-style: preserve-3d;
+				transform: rotateX(0deg);
+				:first-child {
+					translate: 0.5ch 0;
+				}
+				:last-child {
+					transform: rotateX(90deg);
+					translate: 0 1ch;
+				}
+			}
+
+			&:hover .rotate-effect {
+				transform: rotateX(-90deg) translate(0.5ch);
+				:first-child {
+					translate: 1ch -1ch;
+				}
+				:last-child {
+					translate: 0ch 0.8ch;
+				}
+			}
+
+			.close {
+				margin-left: 5.3ch;
+			}
+
+			&:hover .close {
+				margin-left: 7.6ch;
 			}
 		}
 
