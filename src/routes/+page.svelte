@@ -46,7 +46,7 @@
 	</div>
 </div>
 
-<main class="hero h-screen relative snap-start">
+<main id="home" class="hero h-screen relative snap-start">
 	<div
 		class="intersection-observer absolute top-0 h-[30lvh] lg:h-[40vh]"
 		use:viewport
@@ -62,7 +62,7 @@
 				class="hidden lg:inline text-3xl text-white opacity-0 font-extrabold font-[Prompt] hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all duration-500"
 				class:opacity-100={!heroIntersection}
 			>
-				<a href="#">jxcb</a>
+				<a href="#home">jxcb</a>
 			</p>
 			<nav>
 				<ul class="text-lg flex flex-row justify-center items-center gap-5">
@@ -70,7 +70,7 @@
 						class="text-white bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
 						class:text-black={heroIntersection}
 					>
-						<a href="#">home</a>
+						<a href="#home">home</a>
 					</li>
 					<li
 						class="text-white bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
