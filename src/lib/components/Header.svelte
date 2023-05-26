@@ -1,5 +1,7 @@
 <script lang="ts">
 	export let pageName: string | undefined;
+
+	let showNav: boolean = false;
 </script>
 
 <header
@@ -19,8 +21,15 @@
 			<a href="/">jxcb</a>
 		{/if}
 	</p>
-	<div class="fa-solid fa-bars fa-2xl sm:fa-xl lg:hidden fixed top-10 sm:top-8 left-4" />
-	<nav class="overflow-hidden transition-all lg:h-auto p-0 -mt-2 sm:m-0">
+	<div
+		class="fa-solid fa-bars fa-2xl sm:fa-xl lg:hidden fixed top-10 sm:top-8 left-4"
+		on:click={() => (showNav = !showNav)}
+		on:keypress={() => (showNav = !showNav)}
+	/>
+	<nav
+		class="overflow-hidden transition-all duration-500 lg:h-auto p-0 -mt-2 sm:m-0 navigation"
+		class:enabled={showNav}
+	>
 		<ul class="text-lg flex flex-row justify-center items-center gap-5">
 			<li
 				class="hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
@@ -39,13 +48,12 @@
 <style lang="scss">
 	header {
 		@media (max-width: 1024px) {
-			.transition-all {
+			.navigation {
 				height: 0;
-				transition-duration: 500ms;
-			}
-			.fa-bars:hover + .transition-all {
-				padding-top: 0.5rem;
-				height: 2rem;
+				&.enabled {
+					padding-top: 0.5rem;
+					height: 2rem;
+				}
 			}
 		}
 	}
