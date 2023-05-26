@@ -143,24 +143,24 @@
 		class:bg-opacity-0={heroIntersection}
 		class:bg-opacity-40={!heroIntersection}
 	>
-		icarus
+		<a href="icarus">icarus</a>
 	</div>
 </section>
 <section id="kreideprinz" class="h-screen w-full snap-start snap-always">
 	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
-		kreideprinz
+		<a href="kreideprinz">kreideprinz</a>
 	</div>
 </section>
 <section id="crystallize" class="h-screen w-full snap-start snap-always">
 	<div
 		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 bg-opacity-40"
 	>
-		crystallize
+		<a href="crystallize">crystallize</a>
 	</div>
 </section>
 <section id="hikaru" class="h-screen w-full snap-start snap-always">
 	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
-		hikaru
+		<a href="hikaru">hikaru</a>
 	</div>
 </section>
 
