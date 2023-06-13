@@ -5,7 +5,7 @@ name: jxcb.xyz deployment
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ['master']
 
 jobs:
   test:
@@ -17,15 +17,16 @@ jobs:
       run:
         shell: bash
     steps:
-    - uses: actions/checkout@v3
-    - name: nodejs
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: test
-      run: npm install
-      run: npm run test
+      - uses: actions/checkout@v3
+      - name: nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: test
+        run: |
+          npm install
+          npm run test
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -36,15 +37,16 @@ jobs:
         shell: bash
         working-directory: buildtmp
     steps:
-    - uses: actions/checkout@v3
-    - name: nodejs
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: build site
-      run: npm ci
-      run: npm run build
-      working-directory: ./release
-    - name: copy built site to host directory
-      run: cp ./release/* /home/jxcb/www/tmp
+      - uses: actions/checkout@v3
+      - name: nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: build site
+        run: |
+          npm ci
+          npm run build
+        working-directory: ./release
+      - name: copy built site to host directory
+        run: cp ./release/* /home/jxcb/www/tmp
