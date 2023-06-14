@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>http://jxcb.xyz</loc>
+      <loc>https://jxcb.xyz</loc>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://jxcb.xyz/about</loc>
+      <loc>https://jxcb.xyz/about</loc>
    </url>
    <url>
-      <loc>http://jxcb.xyz/icarus</loc>
+      <loc>https://jxcb.xyz/icarus</loc>
    </url>
    <url>
-      <loc>http://jxcb.xyz/kreideprinz</loc>
+      <loc>https://jxcb.xyz/kreideprinz</loc>
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://jxcb.xyz/crystallize</loc>
+      <loc>https://jxcb.xyz/crystallize</loc>
    </url>
    <url>
-      <loc>http://jxcb.xyz/hikaru</loc>
+      <loc>https://jxcb.xyz/hikaru</loc>
    </url>
 </urlset>
