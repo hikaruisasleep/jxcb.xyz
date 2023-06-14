@@ -3,6 +3,10 @@
 	import '$lib/styles/tailwind.postcss';
 </script>
 
+<svelte:head>
+	<title>jxcb | kreideprinz</title>
+</svelte:head>
+
 <div class="container h-[100dvh] min-w-full">
 	<main class="min-h-full grid place-items-center bg-yellow-950 text-white px-10">
 		<div>
