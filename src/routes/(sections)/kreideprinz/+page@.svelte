@@ -17,8 +17,8 @@
 				<h2 class="text-lg translate-x-7 -translate-y-4 text-gruvyellow">project-kreideprinz</h2>
 			</div>
 			<nav class="h-full flex flex-col gap-2">
-				<a href="kreideprinz/blog" class="navbarcoloring transition-all">blog</a>
-				<a href="kreideprinz/projects" class="navbarcoloring transition-all">projects</a>
+				<a href="blog" class="navbarcoloring transition-all">blog</a>
+				<a href="projects" class="navbarcoloring transition-all">projects</a>
 			</nav>
 		</div>
 		<div class="row-start-6 row-span-2">
