@@ -22,7 +22,7 @@
 		{/if}
 	</p>
 	<div
-		class="fa-solid fa-bars fa-2xl sm:fa-xl lg:hidden fixed top-10 sm:top-8 left-4"
+		class="fa-solid fa-bars fa-2xl sm:fa-xl lg:opacity-0 fixed top-10 sm:top-8 left-4"
 		on:click={() => (showNav = !showNav)}
 		on:keypress={() => (showNav = !showNav)}
 	/>
