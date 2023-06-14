@@ -50,8 +50,12 @@
 	<div
 		class="intersection-observer absolute top-0 h-[30lvh] lg:h-[40vh]"
 		use:viewport
-		on:enterViewport={() => (heroIntersection = true)}
-		on:exitViewport={() => (heroIntersection = false)}
+		on:enterViewport={() => {
+			heroIntersection = true;
+		}}
+		on:exitViewport={() => {
+			heroIntersection = false;
+		}}
 	/>
 	<div class="container min-h-full min-w-full select-none static">
 		<header
@@ -67,13 +71,15 @@
 			<nav>
 				<ul class="text-lg flex flex-row justify-center items-center gap-5">
 					<li
-						class="text-white bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
+						class="bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
+						class:text-white={!heroIntersection}
 						class:text-black={heroIntersection}
 					>
 						<a href="#home">home</a>
 					</li>
 					<li
 						class="text-white bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
+						class:text-white={!heroIntersection}
 						class:text-black={heroIntersection}
 					>
 						<a href="/about">about</a>
@@ -92,7 +98,7 @@
 					hi, I'm
 				</p>
 				<h1
-					class="title-main p-5 text-8xl lg:text-[12rem] text-transparent font-extrabold font-[Prompt] animate-in bg-gradient-to-br from-orange-700 to-violet-700 lg:from-orange-950 lg:to-violet-950 bg-clip-text"
+					class="title-main p-5 text-8xl lg:text-[12rem] text-transparent font-extrabold font-[Prompt,_sans-serif] animate-in bg-gradient-to-br from-orange-700 to-violet-700 lg:from-orange-950 lg:to-violet-950 bg-clip-text"
 				>
 					jxcb
 				</h1>
@@ -141,7 +147,9 @@
 	<div
 		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 transition-all"
 		class:bg-opacity-0={heroIntersection}
+		class:lg:bg-opacity-0={heroIntersection}
 		class:bg-opacity-40={!heroIntersection}
+		class:lg:bg-opacity-40={!heroIntersection}
 	>
 		<a href="icarus">icarus</a>
 	</div>
@@ -153,7 +161,7 @@
 </section>
 <section id="crystallize" class="h-screen w-full snap-start snap-always">
 	<div
-		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 bg-opacity-40"
+		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 bg-opacity-40 lg:bg-opacity-40"
 	>
 		<a href="crystallize">crystallize</a>
 	</div>
