@@ -1,6 +1,7 @@
-import type { ActionReturn } from 'svelte/action';
-
-let observer: IntersectionObserver;
+/**
+ * @type {IntersectionObserver}
+ */
+let observer;
 
 function initializeObserver() {
 	observer = new IntersectionObserver((entries) => {
@@ -11,12 +12,10 @@ function initializeObserver() {
 	});
 }
 
-interface Attributes {
-	'on:enterViewport': (event: CustomEvent<unknown>) => unknown;
-	'on:exitViewport': (event: CustomEvent<unknown>) => unknown;
-}
-
-export default function viewport(element: HTMLElement): ActionReturn<Attributes> {
+/**
+ * @param {HTMLElement} element
+ */
+export default function viewport(element) {
 	if (!observer) initializeObserver();
 
 	observer.observe(element);
