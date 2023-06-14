@@ -74,10 +74,4 @@
 			color: $gruv-purple2;
 		}
 	}
-	@media (min-width: 1024px) {
-		.title:hover > .socials {
-			transform: translateX(-15rem);
-			opacity: 1;
-		}
-	}
 </style>

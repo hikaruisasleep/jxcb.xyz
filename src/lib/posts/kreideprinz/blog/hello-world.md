@@ -1,13 +1,13 @@
-+++
+---
 title: Hello, World
-date: 13/06/2023 06:37 UTC
-+++
+date: 13/06/2023 10:15 UTC
+---
 
 After a few good years of making and scraping websites multiple times and learning a lot of things along the way, I finally established that I need _one single place_ to put all my thoughts in, permanently. The fact that my university days are approaching also means I need a place to journal all the learning materials that I would gather over the next few years.
 
-> Hopefully my days of deleting websites are left behind.
+>Hopefully my days of deleting websites are left behind, and I can finally stick to a single design.
 
-At first, I made websites just for the fun of it. I've always loved _making_ things ~~_even though I never really made anything to the point that it's finished, but we don't talk about that_~~ and I was exposed to the Lainchan Webring through [Lilibyte's site](https://lilibyte.net/) and fell in love with the /cyb/ and old web aesthetic.
+At first, I made websites just for the fun of it. I've always loved making things <span class="text-xs">~~_even though I never really finished any of my projects, but we don't talk about that_~~</span> and I was exposed to the Lainchan Webring through [Lilibyte's site](https://lilibyte.net/) and fell in love with the /cyb/ and old web aesthetic.
 
 Ever since I then experimented with some technologies to make websites, however, I mostly focused on the front-end side. The sites look pretty but lack any content whatsoever. My sense of online security and privacy, though, significantly increased after reading a lot of what those paranoids over at Lainchan had to say.
 
