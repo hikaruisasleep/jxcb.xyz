@@ -1,13 +1,27 @@
 <script lang="ts">
 	import Postcard from '$lib/components/kreideprinz/Postcard.svelte';
 
-	export let data: any;
-	console.log(data.ret);
+	export let data: { ret: { title: string; link: string; date: Date; description: string }[] };
 </script>
 
-<h2 class="font-extrabold text-2xl">posts:</h2>
-<main data-sveltekit-preload-data="off">
-	{#each data.ret as post}
-		<Postcard link={post.link} title={post.title} description={post.description} />
+<main class="flex flex-col gap-4">
+	{#each data.ret as post, i}
+		{#if i < 2}
+			<Postcard
+				link={post.link}
+				title={post.title}
+				description={post.description}
+				date={post.date}
+				preloadData={true}
+			/>
+		{:else}
+			<Postcard
+				link={post.link}
+				title={post.title}
+				description={post.description}
+				date={post.date}
+				preloadData={false}
+			/>
+		{/if}
 	{/each}
 </main>

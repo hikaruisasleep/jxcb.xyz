@@ -6,7 +6,7 @@ export async function load({ params }) {
 			const link: string = path.split('/').at(-1).replace('.md', '');
 			if (link == params.post) {
 				title = post.metadata.title;
-				date = post.metadata.date;
+				date = new Date(post.metadata.datestr);
 				content = post.default;
 			}
 		});

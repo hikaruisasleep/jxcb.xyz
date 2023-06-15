@@ -1,34 +1,59 @@
 <script lang="ts">
-	export let data: any;
+	export let data: { title: string; date: Date; content: any };
+	let { title, date, content } = data;
 </script>
 
-<h1 class="text-4xl text-gruvgray2 font-bold self-start mb-1">{data.title}</h1>
-<h2 class="text-gruvgray text-sm font-extralight mb-2">{data.date}</h2>
-<div class="text-base text-justify">
-	<svelte:component this={data.content} />
-</div>
+<main>
+	<div class="flex flex-row items-end justify-between mb-2">
+		<h1 class="text-4xl text-gruvorange2 font-bold self-start">{title}</h1>
+		<h2 class="text-gruvgray text-sm font-extralight">
+			{date.getUTCDate().toString()}/{date.getUTCMonth().toString()}/{date
+				.getUTCFullYear()
+				.toString()}
+			{date.getUTCHours().toString().length < 2
+				? `0${date.getUTCHours().toString()}`
+				: date.getUTCHours().toString()}:{date.getUTCMinutes().toString().length < 2
+				? `0${date.getUTCMinutes().toString()}`
+				: date.getUTCMinutes().toString()}
+			UTC
+		</h2>
+	</div>
+	<div class="text-base text-justify">
+		<svelte:component this={content} />
+	</div>
+</main>
 
 <style lang="scss">
 	.text-gruvgray {
 		color: $gruv-gray1;
 	}
 
-	.text-gruvgray2 {
-		color: $gruv-gray2;
+	.text-gruvorange2 {
+		color: $gruv-orange2;
 	}
 
-	:global(blockquote) {
-		@apply text-gruvgray;
-		@apply italic;
-		@apply text-left;
-		@apply text-sm;
-		@apply my-2;
-	}
-
-	:global(h3) {
-		@apply text-xl;
-		@apply text-gruvgray2;
-		@apply my-2;
-		@apply font-bold;
+	:global {
+		main {
+			blockquote {
+				@apply text-gruvgray;
+				@apply italic;
+				@apply text-left;
+				@apply text-sm;
+				@apply my-2;
+			}
+			h3 {
+				@apply text-xl;
+				@apply text-gruvgray2;
+				@apply my-2;
+				@apply font-bold;
+			}
+			a {
+				color: $gruv-blue2;
+				text-decoration: underline;
+				&:visited {
+					color: $gruv-purple2;
+				}
+			}
+		}
 	}
 </style>
