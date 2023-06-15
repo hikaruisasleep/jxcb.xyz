@@ -1,6 +1,6 @@
 ---
 title: Hello, World
-date: 13/06/2023 10:15 UTC
+datestr: 2023-06-13T10:15Z
 ---
 
 After a few good years of making and scraping websites multiple times and learning a lot of things along the way, I finally established that I need _one single place_ to put all my thoughts in, permanently. The fact that my university days are approaching also means I need a place to journal all the learning materials that I would gather over the next few years.
@@ -18,4 +18,4 @@ This site was initially created as a portfolio for me, seeing that I not only do
 But then, it hit me. I have a whole VPS as my server, why not make it my second brain database as well? I've always struggled to manage notes and schedules in Notion, and I'd like to try using Markdown + LaTeX to store notes.
 So I tried building this part of the site -- project-kreideprinz, taken from Genshin's Albedo -- to house my academic side.
 
-This site was coded with [Svelte](https://svelte.dev/) (I know, JavaScript is evil and all that, but hey, it's a nice framework) so Markdown parsing is naturally handled by [MDSveX](https://mdsvex.com/). I tried a few ways of embedding LaTeX onto my site, such as the LaTeX Rehype plugin on MDSveX,
+This site was coded with [Svelte](https://svelte.dev/) (I know, JavaScript is evil and all that, but hey, it gets the job done. Besides, the majority of people don't even disable JS) so Markdown parsing is naturally handled by [MDSveX](https://mdsvex.com/). I tried a few ways of embedding LaTeX onto my site and eventually settled with [remark-math + rehype-katex](https://github.com/remarkjs/remark-math) because MDSveX supports remark plugins out of the box.
