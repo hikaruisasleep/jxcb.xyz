@@ -33,4 +33,4 @@ jobs:
         run: |
           cp ./release/* /home/jxcb/www/tmp
           touch /home/jxcb/www/tmp/workdir
-          pwd | echo >> /home/jxcb/www/tmp/workdir
+          pwd > /home/jxcb/www/tmp/workdir
