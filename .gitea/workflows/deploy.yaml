@@ -30,6 +30,7 @@ jobs:
           npm ci
           npm run build
       - name: copy built site to host directory
-        run: cp ./release/* /home/jxcb/www/tmp
-        run: touch /home/jxcb/www/tmp/workdir
-        run: pwd | echo >> /home/jxcb/www/tmp/workdir
+        run: |
+          cp ./release/* /home/jxcb/www/tmp
+          touch /home/jxcb/www/tmp/workdir
+          pwd | echo >> /home/jxcb/www/tmp/workdir
