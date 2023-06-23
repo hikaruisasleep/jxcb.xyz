@@ -18,6 +18,7 @@
 			</div>
 			<nav class="h-full flex flex-col gap-2">
 				<a href="blog" class="navbarcoloring transition-all">blog</a>
+				<a href="notes" class="navbarcoloring transition-all">notes</a>
 				<a href="projects" class="navbarcoloring transition-all">projects</a>
 			</nav>
 		</div>

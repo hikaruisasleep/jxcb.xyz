@@ -3,7 +3,9 @@
 </script>
 
 <a href={link} data-sveltekit-preload-data={preloadData ? 'hover' : 'off'}>
-	<div class="min-w-full bg-gruvfg aspect-[10/1] grid grid-rows-3 grid-cols-2 place-items-center">
+	<div
+		class="min-w-full bg-gruvfg aspect-[12/1] grid grid-rows-3 grid-cols-2 place-items-center px-4 py-3"
+	>
 		{#if description}
 			<p
 				class="font-bold text-2xl text-gruvbg row-start-1 col-start-1 row-span-2 col-span-1 w-full"

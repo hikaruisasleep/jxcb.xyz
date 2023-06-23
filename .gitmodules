@@ -1,0 +1,3 @@
+[submodule "src/lib/posts/obsidian-vaults"]
+	path = src/lib/posts/obsidian-vaults
+	url = https://git.servers.jxcb.xyz/jxcb/obsidian-vaults.git

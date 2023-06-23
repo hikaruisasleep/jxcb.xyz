@@ -4,7 +4,7 @@
 	export let data: { ret: { title: string; link: string; date: Date; description: string }[] };
 </script>
 
-<main class="flex flex-col gap-4">
+<div class="flex flex-col gap-4">
 	{#each data.ret as post, i}
 		{#if i < 2}
 			<Postcard
@@ -24,4 +24,10 @@
 			/>
 		{/if}
 	{/each}
-</main>
+</div>
+
+<style lang="scss">
+	:global(a) {
+		text-decoration: none;
+	}
+</style>
