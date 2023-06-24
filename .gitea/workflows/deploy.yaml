@@ -29,12 +29,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: build
-        working-directory: ./release
         run: |
           npm ci
           npm run build
+          pwd
       - name: copy built site to host directory
         run: |
-          cp ./release/* /home/jxcb/www/tmp
-          touch /home/jxcb/www/tmp/workdir
-          pwd > /home/jxcb/www/tmp/workdir
+          echo "cp release/* /home/jxcb/www/tmp"
+          echo "touch /home/jxcb/www/tmp/workdir"
+          echo "pwd > /home/jxcb/www/tmp/workdir"
