@@ -22,7 +22,7 @@ jobs:
         uses: https://github.com/actions/checkout@v3
         with:
           submodules: 'recursive'
-          github-server-url: 'https://git.server.jxcb.xyz'
+          github-server-url: 'https://git.servers.jxcb.xyz'
       - name: nodejs
         uses: actions/setup-node@v3
         with:
