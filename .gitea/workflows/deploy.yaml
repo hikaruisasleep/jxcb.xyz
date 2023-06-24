@@ -23,12 +23,12 @@ jobs:
         with:
           submodules: 'recursive'
           github-server-url: 'https://git.servers.jxcb.xyz'
-      - name: nodejs
-        uses: actions/setup-node@v3
+      - name: setup-node
+        uses: https://github.com/actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: build site
+      - name: build
         working-directory: ./release
         run: |
           npm ci
