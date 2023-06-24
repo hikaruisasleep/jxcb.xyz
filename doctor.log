@@ -1,0 +1,1 @@
+2023/06/24 09:16:10 ...s/setting/setting.go:206:Init() [F] Init[&{/etc/gitea/app.ini false  false}]: failed to load custom conf '/etc/gitea/app.ini': open /etc/gitea/app.ini: permission denied
