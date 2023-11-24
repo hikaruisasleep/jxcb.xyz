@@ -1,13 +1,25 @@
 <script lang="ts">
 	import viewport from '$lib/actions/useViewportAction';
 
-	let heroIntersection: boolean;
+    let heroIntersection: boolean;
+
+    let yPos;
+    let pgHeight;
+    $:pgPos = yPos / pgHeight + 1;
 </script>
+
+<svelte:window bind:scrollY={yPos} bind:innerHeight={pgHeight} />
+
+<div class="fixed inset-y-1/2 right-0">
+    <p class="text-l">innerHeight: {pgHeight}</p>
+    <p class="text-l">scrollY: {yPos}</p>
+    <p class="text-l">page: {pgPos}</p>
+</div>
 
 <div class="bg fixed inset-0 h-screen w-full -z-30">
 	<span class="block relative gradient w-full h-full -z-10" />
 	<div class="decorations fixed inset-0 h-screen w-full grid place-items-center">
-		<div class="rotating-circles fixed inset-0 h-screen w-full grid place-items-center -z-20">
+		<div class="rotating-circles fixed inset-0 h-screen w-full grid place-items-center -z-20" class:hidden={pgPos >= 2}>
 			<div
 				class="w-[60vw] aspect-square lg:w-[40vw] fixed -bottom-[30vw] lg:bottom-auto lg:-right-[20vw] animate"
 			>
@@ -37,7 +49,8 @@
 			</div>
 		</div>
 		<div
-			class="shooting-stars inset-0 h-[50vh] w-[150%] grid place-items-center -translate-y-[50%] -rotate-45 lg:-translate-y-[25%] lg:-translate-x-[20%] lg:z-0 lg:h-[200vh]"
+            class="shooting-stars inset-0 h-[50vh] w-[150%] grid place-items-center -translate-y-[50%] -rotate-45 lg:-translate-y-[25%] lg:-translate-x-[20%] lg:z-0 lg:h-[200vh]"
+            class:hidden={pgPos >= 2}
 		>
 			{#each Array.from(Array(20)) as _}
 				<div class="star" />
@@ -103,7 +116,7 @@
 					jxcb
 				</h1>
 				<div
-					class="title-sub flex flex-row text-base animate-in text-[rgb(255_255_255_/_0.5)] -translate-y-[2rem] translate-x-1 lg:text-xl lg:translate-x-20 lg:-translate-y-10"
+					class="title-sub flex flex-row text-base animate-in text-[rgb(30_41_59_/_0.5)] lg:text-[rgb(255_255_255_/_0.5)] -translate-y-[2rem] translate-x-1 lg:text-xl lg:translate-x-20 lg:-translate-y-10"
 				>
 					<span>(</span>
 					<p>pronounced</p>
@@ -141,7 +154,9 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+    </div>
+    <footer>
+    </footer>
 </main>
 <section id="icarus" class="h-screen w-full snap-start snap-always">
 	<div
@@ -163,7 +178,7 @@
 	<div
 		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 bg-opacity-40 lg:bg-opacity-40"
 	>
-		<a href="crystallize">crystallize</a>
+		<a href="crystallize" class="font-[SFMono]">crystallize</a>
 	</div>
 </section>
 <section id="hikaru" class="h-screen w-full snap-start snap-always">
@@ -239,21 +254,30 @@
 			}
 
 			&:hover .rotate-effect {
-				transform: rotateX(-90deg) translate(0.5ch);
-				:first-child {
+                transform: rotateX(-90deg) translate(0.5ch);
+                :first-child {
 					translate: 1ch -1ch;
 				}
 				:last-child {
 					translate: 0ch 0.8ch;
-				}
-			}
+                }
+             
+            }
 
 			.close {
-				margin-left: 5.3ch;
-			}
+                @media (min-width: 1024px) {
+				    margin-left: 5.38ch;
+                }
+                
+                margin-left: 5.35ch;
+            }
 
-			&:hover .close {
-				margin-left: 7.6ch;
+            &:hover .close {
+                @media (min-width: 1024px) {
+                    transform: translateX(2.45ch);
+                }
+
+                transform: translateX(2.35ch);
 			}
 		}
 
