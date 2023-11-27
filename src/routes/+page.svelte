@@ -170,16 +170,19 @@
 	</div>
 </section>
 <section id="kreideprinz" class="h-screen w-full snap-start snap-always">
-	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
-		<a href="kreideprinz">kreideprinz</a>
+	<div class="container grid place-items-center max-w-full h-full bg-[#282828]">
+        <a href="kreideprinz" class="text-[#ebdbb2] text-2xl">kreideprinz</a>
 	</div>
 </section>
 <section id="crystallize" class="h-screen w-full snap-start snap-always">
 	<div
-		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 bg-opacity-40 lg:bg-opacity-40"
-	>
-		<a href="crystallize" class="font-[SFMono]">crystallize</a>
-	</div>
+		class="container grid place-items-center max-w-full h-full bg-black"
+    >
+        <div>
+            <a href="crystallize" class="font-[SFMono] text-white text-3xl">crystallize</a>
+            <p class="font-[SFMono] text-white">the power to give life through motion</p>
+        </div>    
+    </div>
 </section>
 <section id="hikaru" class="h-screen w-full snap-start snap-always">
 	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
