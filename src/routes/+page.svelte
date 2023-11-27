@@ -1,11 +1,10 @@
 <script lang="ts">
 	import viewport from '$lib/actions/useViewportAction';
 
-    let heroIntersection: boolean;
-
     let yPos;
     let pgHeight;
     $:pgPos = yPos / pgHeight + 1;
+    $:heroIntersection = pgPos < 1.5;
 </script>
 
 <svelte:window bind:scrollY={yPos} bind:innerHeight={pgHeight} />
@@ -60,16 +59,6 @@
 </div>
 
 <main id="home" class="hero h-screen relative snap-start">
-	<div
-		class="intersection-observer absolute top-0 h-[30lvh] lg:h-[40vh]"
-		use:viewport
-		on:enterViewport={() => {
-			heroIntersection = true;
-		}}
-		on:exitViewport={() => {
-			heroIntersection = false;
-		}}
-	/>
 	<div class="container min-h-full min-w-full select-none static">
 		<header
 			class="hidden lg:flex flex-row flex-initial justify-between items-center px-24 py-3 fixed inset-[0_0_auto] max-h-min min-w-full transition-all duration-500 z-10"
