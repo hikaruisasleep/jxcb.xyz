@@ -2,6 +2,7 @@
 	import viewport from '$lib/actions/useViewportAction';
 
 	let heroIntersection: boolean;
+	import { page } from '$app/stores';
 </script>
 
 <div
@@ -167,9 +168,10 @@
 	</div>
 </section>
 
-<svg class="h-0 w-0">
+<svg class="w-0 h-0">
 	<filter id="grain">
-		<feTurbulence type="turbulence" baseFrequency="0.5" />
+		<feTurbulence type="turbulence" baseFrequency="0.5" stitchTiles="stitch" />
+		<feColorMatrix type="saturate" values="0" result="grain" />
 	</filter>
 </svg>
 

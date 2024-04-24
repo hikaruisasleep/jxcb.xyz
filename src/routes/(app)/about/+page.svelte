@@ -1,7 +1,8 @@
-<h1 class="text-2xl">About</h1>
-<hr />
-<p>
-	Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus a ipsam excepturi amet eveniet
-	delectus, ad et rerum tempore voluptatibus illo. Magnam voluptatibus aliquam saepe aliquid, cum
-	voluptates beatae optio!
-</p>
+<div class="container w-full h-full grid grid-cols-2 grid-rows-3">
+	<div class="border-2 border-black" />
+	<div class="border-2 border-black" />
+	<div class="border-2 border-black" />
+	<div class="border-2 border-black" />
+	<div class="border-2 border-black" />
+	<div class="border-2 border-black" />
+</div>

@@ -1,22 +1,12 @@
 <script lang="ts">
-	export let data: { title: string; date: Date; content: any };
-	let { title, date, content } = data;
+	export let data: { content: any; title: any; folder: any };
+	let { content, title, folder } = data;
 </script>
 
 <main>
 	<div class="flex flex-row items-end justify-between mb-2">
 		<h1 class="text-4xl text-gruvorange2 font-bold self-start">{title}</h1>
-		<h2 class="text-gruvgray text-sm font-extralight">
-			{date.getUTCDate().toString()}/{date.getUTCMonth().toString()}/{date
-				.getUTCFullYear()
-				.toString()}
-			{date.getUTCHours().toString().length < 2
-				? `0${date.getUTCHours().toString()}`
-				: date.getUTCHours().toString()}:{date.getUTCMinutes().toString().length < 2
-				? `0${date.getUTCMinutes().toString()}`
-				: date.getUTCMinutes().toString()}
-			UTC
-		</h2>
+		<h2 class="text-gruvgray text-sm font-extralight">{folder}</h2>
 	</div>
 	<div class="text-sm text-justify">
 		<svelte:component this={content} />

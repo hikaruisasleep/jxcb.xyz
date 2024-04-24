@@ -11,7 +11,6 @@
 				link={post.link}
 				title={post.title}
 				description={post.link.split('/').at(-2) || ''}
-				date={new Date()}
 				preloadData={true}
 			/>
 		{:else}
@@ -19,7 +18,6 @@
 				link={post.link}
 				title={post.title}
 				description={post.link.split('/').at(-2) || ''}
-				date={new Date()}
 				preloadData={false}
 			/>
 		{/if}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let pageName: string | undefined;
+	export let pageName: string | undefined = undefined;
 
 	let showNav: boolean = false;
 </script>
@@ -7,18 +7,20 @@
 <header
 	class="w-full shadow-md flex flex-col lg:flex-row flex-initial justify-center lg:justify-between items-center py-3 px-24 max-h-min min-w-full transition-all"
 >
-	<p class="text-3xl font-bold align-middle">
+	<p class="align-middle font-[Prompt] nav-title">
 		{#if pageName}
 			<a href="/{pageName}" class="text-center flex flex-col sm:flex-row text-lg sm:text-3xl">
-				jxcb ፤ project
+				<span class="font-extrabold text-3xl">jxcb</span>
+				<span class="font-bold text-3xl px-2">፤</span>
+				<span class="font-bold text-3xl">project</span>
 				<span
-					class="bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text text-transparent text-center text-3xl -translate-y-2 sm:translate-y-0"
+					class="bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text text-transparent text-center font-bold text-3xl -translate-y-2 sm:translate-y-0"
 				>
 					{pageName}
 				</span>
 			</a>
 		{:else}
-			<a href="/">jxcb</a>
+			<a href="/" class="font-extrabold text-3xl">jxcb</a>
 		{/if}
 	</p>
 	<div

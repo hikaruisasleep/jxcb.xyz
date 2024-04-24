@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let title: string, description: string, link: string, date: Date, preloadData: boolean;
+	export let title: string,
+		description: string,
+		link: string,
+		date: Date | undefined = undefined,
+		preloadData: boolean;
 </script>
 
 <a href={link} data-sveltekit-preload-data={preloadData ? 'hover' : 'off'}>
@@ -24,19 +28,21 @@
 				{title}
 			</p>
 		{/if}
-		<p
-			class="font-extralight text-sm text-gruvgray row-start-1 col-start-2 row-span-3 col-span-1 w-full text-right"
-		>
-			{date.getUTCDate().toString()}/{date.getUTCMonth().toString()}/{date
-				.getUTCFullYear()
-				.toString()}
-			{date.getUTCHours().toString().length < 2
-				? `0${date.getUTCHours().toString()}`
-				: date.getUTCHours().toString()}:{date.getUTCMinutes().toString().length < 2
-				? `0${date.getUTCMinutes().toString()}`
-				: date.getUTCMinutes().toString()}
-			UTC
-		</p>
+		{#if date}
+			<p
+				class="font-extralight text-sm text-gruvgray row-start-1 col-start-2 row-span-3 col-span-1 w-full text-right"
+			>
+				{date.getUTCDate().toString()}/{date.getUTCMonth().toString()}/{date
+					.getUTCFullYear()
+					.toString()}
+				{date.getUTCHours().toString().length < 2
+					? `0${date.getUTCHours().toString()}`
+					: date.getUTCHours().toString()}:{date.getUTCMinutes().toString().length < 2
+					? `0${date.getUTCMinutes().toString()}`
+					: date.getUTCMinutes().toString()}
+				UTC
+			</p>
+		{/if}
 	</div>
 </a>
 
