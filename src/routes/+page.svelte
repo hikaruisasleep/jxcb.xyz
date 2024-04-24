@@ -4,7 +4,10 @@
 	let heroIntersection: boolean;
 </script>
 
-<div class="bg fixed inset-0 h-screen w-full -z-30">
+<div
+	class="bg fixed inset-0 h-screen w-full -z-30 transition-opacity duration-500"
+	class:opacity-0={!heroIntersection}
+>
 	<span class="block relative gradient w-full h-full -z-10" />
 	<div class="decorations fixed inset-0 h-screen w-full grid place-items-center">
 		<div class="rotating-circles fixed inset-0 h-screen w-full grid place-items-center -z-20">
@@ -63,7 +66,7 @@
 			class:bg-slate-800={!heroIntersection}
 		>
 			<p
-				class="hidden lg:inline text-3xl text-white opacity-0 font-extrabold font-[Prompt] hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all duration-500"
+				class=" text-3xl text-white opacity-0 font-extrabold font-[Prompt] hover:brightness-110 transition-all duration-500"
 				class:opacity-100={!heroIntersection}
 			>
 				<a href="#home">jxcb</a>
@@ -71,14 +74,14 @@
 			<nav>
 				<ul class="text-lg flex flex-row justify-center items-center gap-5">
 					<li
-						class="bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
+						class="bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-150 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.4)] transition-all ease-in-out duration-500"
 						class:text-white={!heroIntersection}
 						class:text-black={heroIntersection}
 					>
 						<a href="#home">home</a>
 					</li>
 					<li
-						class="text-white bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-110 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all ease-in-out duration-500"
+						class="bg-opacity-0 bg-gradient-to-br from-orange-700 to-violet-700 bg-clip-text hover:brightness-150 hover:bg-opacity-100 hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.4)] transition-all ease-in-out duration-500"
 						class:text-white={!heroIntersection}
 						class:text-black={heroIntersection}
 					>
@@ -103,7 +106,7 @@
 					jxcb
 				</h1>
 				<div
-					class="title-sub flex flex-row text-base animate-in text-[rgb(255_255_255_/_0.5)] -translate-y-[2rem] translate-x-1 lg:text-xl lg:translate-x-20 lg:-translate-y-10"
+					class="lg:visible invisible title-sub flex flex-row text-base animate-in text-[rgb(255_255_255_/_0.5)] -translate-y-[2rem] translate-x-1 lg:text-xl lg:translate-x-20 lg:-translate-y-10"
 				>
 					<span>(</span>
 					<p>pronounced</p>
@@ -118,25 +121,17 @@
 				<ul
 					class="main-skills flex flex-col flex-initial justify-center text-center lg:text-right align-middle lg:translate-x-8"
 				>
-					<li
-						class="animate-in hover:-translate-y-1 hover:brightness-110 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
-					>
-						<a href="#icarus">frontend developer · ui designer</a>
+					<li class="skill-child animate-in">
+						<a href="#icarus" class="block transition-all">frontend developer · ui designer</a>
 					</li>
-					<li
-						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
-					>
-						<a href="#kreideprinz">computer science student</a>
+					<li class="skill-child animate-in">
+						<a href="#kreideprinz" class=" block transition-all">computer science student</a>
 					</li>
-					<li
-						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
-					>
-						<a href="#crystallize">motion designer · photographer</a>
+					<li class="skill-child animate-in">
+						<a href="#crystallize" class=" block transition-all">motion designer · photographer</a>
 					</li>
-					<li
-						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
-					>
-						<a href="#hikaru">bedroom producer · vocal synth user</a>
+					<li class="skill-child animate-in">
+						<a href="#hikaru" class=" block transition-all">bedroom producer · vocal synth user</a>
 					</li>
 				</ul>
 			</div>
@@ -274,7 +269,7 @@
 			animation: slideDownFade 500ms $expoOut both;
 		}
 
-		@for $i from 1 through 10 {
+		@for $i from 1 through 4 {
 			.animate-in:nth-child(#{$i}) {
 				-webkit-animation-delay: (#{($i + 3) * 100ms});
 				animation-delay: (#{($i + 3) * 100ms});
@@ -283,6 +278,26 @@
 
 		.transition-all {
 			transition-timing-function: $expoOut;
+		}
+
+		@media (min-width: 1024px) {
+			.skill-child:hover > a {
+				--tw-translate-y: -0.25rem;
+				transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate))
+					skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+					scaleY(var(--tw-scale-y));
+				--tw-drop-shadow: drop-shadow(0 0.25rem 3px rgb(0 0 0 / 0.2));
+				--tw-brightness: brightness(1.1);
+				filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale)
+					var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia)
+					var(--tw-drop-shadow);
+				--tw-gradient-from: #c2410c var(--tw-gradient-from-position);
+				--tw-gradient-to: #6d28d9 var(--tw-gradient-to-position);
+				--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+				background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+				background-clip: text;
+				color: transparent;
+			}
 		}
 	}
 
