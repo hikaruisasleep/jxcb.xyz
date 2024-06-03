@@ -18,19 +18,22 @@ jobs:
         shell: bash
         working-directory: buildtmp
     steps:
-      - uses: actions/checkout@v3
-      - name: nodejs
+      - name: checkout
+        uses: https://github.com/actions/checkout@v3
+        with:
+          submodules: 'recursive'
+          github-server-url: 'https://git.servers.jxcb.xyz'
+      - name: setup-node
         uses: https://github.com/actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: build site
-        working-directory: ./release
+      - name: npm-build
         run: |
           npm ci
-          npm run build
+          npm run build --if-present
       - name: copy built site to host directory
         run: |
-          cp ./release/* /home/jxcb/www/tmp
-          touch /home/jxcb/www/tmp/workdir
-          pwd > /home/jxcb/www/tmp/workdir
+          echo "cp release/* /home/jxcb/www/tmp"
+          echo "touch /home/jxcb/www/tmp/workdir"
+          echo "pwd > /home/jxcb/www/tmp/workdir"

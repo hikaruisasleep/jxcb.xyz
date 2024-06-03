@@ -1,6 +1,7 @@
 <script lang="ts">
 	import viewport from '$lib/actions/useViewportAction';
 
+<<<<<<< HEAD
 	let heroIntersection: boolean;
 	import { page } from '$app/stores';
 </script>
@@ -11,6 +12,25 @@
 >
 	<span class="block relative gradient w-full h-full -z-10" />
 	<div class="decorations fixed inset-0 h-screen w-full grid place-items-center">
+=======
+    let yPos;
+    let pgHeight;
+    $:pgPos = Math.floor(yPos / pgHeight * 10) / 10 + 1;
+    $:heroIntersection = pgPos < 1.5;
+</script>
+
+<svelte:window bind:scrollY={yPos} bind:innerHeight={pgHeight} />
+
+<div class="fixed top-1/2 -translate-y-1/2 right-0 text-white mix-blend-difference">
+    <p class="text-l">innerHeight: {pgHeight}</p>
+    <p class="text-l">scrollY: {yPos}</p>
+    <p class="text-l">page: {pgPos}</p>
+</div>
+
+<div class="bg fixed inset-0 h-screen w-full -z-30">
+    <span class="block relative gradient w-full h-full -z-10 transition-all" class:opacity-0={ pgPos >= 1.5 } />
+    <div class="decorations fixed inset-0 h-screen w-full grid place-items-center" class:hidden={ pgPos >= 2 }>
+>>>>>>> c0d1dfa910a614f73172da58c66f7d144a623a1a
 		<div class="rotating-circles fixed inset-0 h-screen w-full grid place-items-center -z-20">
 			<div
 				class="w-[60vw] aspect-square lg:w-[40vw] fixed -bottom-[30vw] lg:bottom-auto lg:-right-[20vw] animate"
@@ -41,26 +61,20 @@
 			</div>
 		</div>
 		<div
-			class="shooting-stars inset-0 h-[50vh] w-[150%] grid place-items-center -translate-y-[50%] -rotate-45 lg:-translate-y-[25%] lg:-translate-x-[20%] lg:z-0 lg:h-[200vh]"
-		>
+            class="shooting-stars inset-0 h-[50vh] w-[150%] grid place-items-center -translate-y-[50%] -rotate-45 lg:-translate-y-[25%] lg:-translate-x-[20%] lg:z-0 lg:h-[200vh]"
+        >
 			{#each Array.from(Array(20)) as _}
 				<div class="star" />
 			{/each}
 		</div>
-	</div>
+    </div>
+    <div class="fixed bg-white w-full h-full z-1 inset-y-0 transition-slow opacity-0" class:opacity-100={pgPos > 1.5} />
+    <div class="fixed bg-[#282828] w-full h-full z-1 inset-y-0 transition-slow opacity-0" class:opacity-100={pgPos > 2.5} />
+    <div class="fixed bg-black w-full h-full z-1 inset-y-0 transition-slow opacity-0" class:opacity-100={pgPos > 3.5} />
+    <div class="fixed bg-[#d6eaff] w-full h-full z-1 inset-y-0 transition-slow opacity-0" class:opacity-100={pgPos > 4.5} />
 </div>
 
 <main id="home" class="hero h-screen relative snap-start">
-	<div
-		class="intersection-observer absolute top-0 h-[30lvh] lg:h-[40vh]"
-		use:viewport
-		on:enterViewport={() => {
-			heroIntersection = true;
-		}}
-		on:exitViewport={() => {
-			heroIntersection = false;
-		}}
-	/>
 	<div class="container min-h-full min-w-full select-none static">
 		<header
 			class="hidden lg:flex flex-row flex-initial justify-between items-center px-24 py-3 fixed inset-[0_0_auto] max-h-min min-w-full transition-all duration-500 z-10"
@@ -107,7 +121,11 @@
 					jxcb
 				</h1>
 				<div
+<<<<<<< HEAD
 					class="lg:visible invisible title-sub flex flex-row text-base animate-in text-[rgb(255_255_255_/_0.5)] -translate-y-[2rem] translate-x-1 lg:text-xl lg:translate-x-20 lg:-translate-y-10"
+=======
+					class="title-sub flex flex-row text-base animate-in text-[rgb(30_41_59_/_0.5)] lg:text-[rgb(255_255_255_/_0.5)] -translate-y-[2rem] translate-x-1 lg:text-xl lg:translate-x-20 lg:-translate-y-10"
+>>>>>>> c0d1dfa910a614f73172da58c66f7d144a623a1a
 				>
 					<span>(</span>
 					<p>pronounced</p>
@@ -125,11 +143,23 @@
 					<li class="skill-child animate-in">
 						<a href="#icarus" class="block transition-all">frontend developer · ui designer</a>
 					</li>
+<<<<<<< HEAD
 					<li class="skill-child animate-in">
 						<a href="#kreideprinz" class=" block transition-all">computer science student</a>
 					</li>
 					<li class="skill-child animate-in">
 						<a href="#crystallize" class=" block transition-all">motion designer · photographer</a>
+=======
+					<li
+						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
+					>
+						<a href="#kreideprinz">computer science student</a>
+			)		</li>
+					<li
+						class="animate-in hover:-translate-y-1 hover:brightness-100 hover:bg-gradient-to-br from-orange-700 to-violet-700 hover:bg-clip-text hover:text-transparent hover:drop-shadow-[0_0.25rem_3px_rgb(0_0_0_/_0.2)] transition-all"
+					>
+						<a href="#crystallize">motion designer · photographer</a>
+>>>>>>> c0d1dfa910a614f73172da58c66f7d144a623a1a
 					</li>
 					<li class="skill-child animate-in">
 						<a href="#hikaru" class=" block transition-all">bedroom producer · vocal synth user</a>
@@ -137,34 +167,45 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+    </div>
+    <footer>
+    </footer>
 </main>
 <section id="icarus" class="h-screen w-full snap-start snap-always">
 	<div
-		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 transition-all"
-		class:bg-opacity-0={heroIntersection}
-		class:lg:bg-opacity-0={heroIntersection}
-		class:bg-opacity-40={!heroIntersection}
-		class:lg:bg-opacity-40={!heroIntersection}
+		class="container grid place-items-center max-w-full h-full bg-opacity-0"
 	>
 		<a href="icarus">icarus</a>
 	</div>
 </section>
 <section id="kreideprinz" class="h-screen w-full snap-start snap-always">
-	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
-		<a href="kreideprinz">kreideprinz</a>
+	<div class="container grid place-items-center max-w-full h-full">
+        <div>
+            <a href="kreideprinz" class="text-[#ebdbb2] text-2xl">kreideprinz</a>
+        </div>
 	</div>
 </section>
 <section id="crystallize" class="h-screen w-full snap-start snap-always">
 	<div
-		class="container grid place-items-center max-w-full h-full bg-stone-400 lg:bg-stone-300 bg-opacity-40 lg:bg-opacity-40"
-	>
-		<a href="crystallize">crystallize</a>
-	</div>
+		class="container grid place-items-center max-w-full h-full"
+    >
+        <svg height="100" width="100" class="border-white border-2" style="grid-area: 1 / 1 / 1 / 1;">
+            <polygon points="50,0 100,30 100,70 50,100 0,70 0,25" class="fill-none stroke-white stroke-1" />
+        </svg>
+        <div style="grid-area: 1 / 1 / 1 / 1;">
+            <a href="crystallize">
+                <p class="font-[SFMono] text-white text-3xl">crystallize</p>
+                <p class="font-[SFMono] italic text-white">the power to give life through motion</p>
+            </a>
+        </div>
+    </div>
 </section>
 <section id="hikaru" class="h-screen w-full snap-start snap-always">
-	<div class="container grid place-items-center max-w-full h-full bg-stone-400 bg-opacity-40">
-		<a href="hikaru">hikaru</a>
+	<div class="container grid place-items-center max-w-full h-full">
+        <div>
+            <p></p>
+            <a href="hikaru">hikaru</a>
+        </div>
 	</div>
 </section>
 
@@ -178,7 +219,7 @@
 <style lang="scss">
 	:global(html) {
 		scroll-snap-type: y mandatory;
-	}
+    }
 
 	.bg {
 		&::before,
@@ -205,7 +246,13 @@
 					background: linear-gradient(to right, rgb(30 41 59) 0 47.5%, rgb(212 212 216 / 0) 100%);
 				}
 			}
-		}
+        }
+
+        .transition-slow {
+            transition-property: all;
+            transition-timing-function: linear;
+            transition-duration: 450ms;
+        }
 	}
 
 	.title {
@@ -236,21 +283,30 @@
 			}
 
 			&:hover .rotate-effect {
-				transform: rotateX(-90deg) translate(0.5ch);
-				:first-child {
+                transform: rotateX(-90deg) translate(0.5ch);
+                :first-child {
 					translate: 1ch -1ch;
 				}
 				:last-child {
 					translate: 0ch 0.8ch;
-				}
-			}
+                }
+             
+            }
 
 			.close {
-				margin-left: 5.3ch;
-			}
+                @media (min-width: 1024px) {
+				    margin-left: 5.38ch;
+                }
+                
+                margin-left: 5.35ch;
+            }
 
-			&:hover .close {
-				margin-left: 7.6ch;
+            &:hover .close {
+                @media (min-width: 1024px) {
+                    transform: translateX(2.45ch);
+                }
+
+                transform: translateX(2.35ch);
 			}
 		}
 
@@ -280,6 +336,7 @@
 
 		.transition-all {
 			transition-timing-function: $expoOut;
+<<<<<<< HEAD
 		}
 
 		@media (min-width: 1024px) {
@@ -301,6 +358,10 @@
 				color: transparent;
 			}
 		}
+=======
+        }
+
+>>>>>>> c0d1dfa910a614f73172da58c66f7d144a623a1a
 	}
 
 	.decorations {
