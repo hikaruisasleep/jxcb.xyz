@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '$lib/styles/scss.scss';
-	import '$lib/styles/tailwind.postcss';
+	import '#lib/styles/scss.scss';
+	import '#lib/styles/tailwind.postcss';
 </script>
 
 <svelte:head>
@@ -36,8 +36,12 @@
 		</div>
 		<div class="row-start-[10] row-span-1">
 			<nav class="socials flex flex-row justify-between items-center gap-6 transition-all">
-				<a href="https://instagram.com/chalkprinze._"><i class="fa-brands fa-instagram fa-xl" /></a>
-				<a href="https://youtube.com/@chalkprinze"><i class="fa-brands fa-youtube fa-xl" /></a>
+				<a href="https://instagram.com/chalkprinze._" aria-label="Instagram"
+					><i class="fa-brands fa-instagram fa-xl"></i></a
+				>
+				<a href="https://youtube.com/@chalkprinze" aria-label="YouTube"
+					><i class="fa-brands fa-youtube fa-xl"></i></a
+				>
 			</nav>
 		</div>
 	</main>

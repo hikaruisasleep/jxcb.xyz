@@ -8,6 +8,7 @@ const config = defineConfig({
 		dashes: 'oldschool'
 	},
 	remarkPlugins: [math],
+	// @ts-expect-error - rehype-katex-svelte ships types for an older @types/hast than mdsvex expects
 	rehypePlugins: [math_katex]
 });
 

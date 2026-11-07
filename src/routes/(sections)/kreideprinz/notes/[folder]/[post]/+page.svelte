@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data: { content: any; title: any; folder: any };
+	import type { Component } from 'svelte';
+
+	export let data: { content: Component; title: string; folder: string };
 	let { content, title, folder } = data;
 </script>
 

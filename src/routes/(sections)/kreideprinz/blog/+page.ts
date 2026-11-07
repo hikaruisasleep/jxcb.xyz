@@ -1,5 +1,10 @@
+import type { Component } from 'svelte';
+
 export async function load() {
-	const posts = await import.meta.glob('$lib/posts/kreideprinz/blog/*.md');
+	const posts = await import.meta.glob<{
+		metadata: { title: string; datestr: string; description: string };
+		default: Component;
+	}>('#lib/posts/kreideprinz/blog/*.md');
 	const ret: { link: string; title: string; date: Date; description: string }[] = [];
 	for (const path in posts) {
 		await posts[path]().then((post) => {

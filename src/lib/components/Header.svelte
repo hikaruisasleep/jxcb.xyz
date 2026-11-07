@@ -25,9 +25,12 @@
 	</p>
 	<div
 		class="fa-solid fa-bars fa-2xl sm:fa-xl lg:opacity-0 fixed top-10 sm:top-8 left-4"
+		role="button"
+		tabindex="0"
+		aria-label="Toggle navigation"
 		on:click={() => (showNav = !showNav)}
 		on:keypress={() => (showNav = !showNav)}
-	/>
+	></div>
 	<nav
 		class="overflow-hidden transition-all duration-500 lg:h-auto p-0 -mt-2 sm:m-0 navigation"
 		class:enabled={showNav}

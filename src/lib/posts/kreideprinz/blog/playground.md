@@ -1,6 +1,6 @@
 ---
 title: MDSveX test
-datestr: 0
+datestr: 2023-06-14T00:00Z
 description: for experimentation and testing
 ---
 
@@ -36,7 +36,7 @@ JavaScript
 
 ```js
 export async function load({ params }) {
-    const posts = await import.meta.glob('$lib/posts/kreideprinz/blog/*.md');
+    const posts = await import.meta.glob('#lib/posts/kreideprinz/blog/*.md');
     let title, date, content;
     for (const path in posts) {
         await posts[path]().then((post) => {

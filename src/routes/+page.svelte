@@ -1,15 +1,17 @@
 <script lang="ts">
-	import viewport from '$lib/actions/useViewportAction';
-
-	let heroIntersection: boolean;
-	import { page } from '$app/stores';
+	let yPos = 0;
+	let pgHeight = 0;
+	$: pgPos = pgHeight > 0 ? Math.floor((yPos / pgHeight) * 10) / 10 + 1 : 1;
+	$: heroIntersection = pgPos < 1.5;
 </script>
+
+<svelte:window bind:scrollY={yPos} bind:innerHeight={pgHeight} />
 
 <div
 	class="bg fixed inset-0 h-screen w-full -z-30 transition-opacity duration-500"
 	class:opacity-0={!heroIntersection}
 >
-	<span class="block relative gradient w-full h-full -z-10" />
+	<span class="block relative gradient w-full h-full -z-10"></span>
 	<div class="decorations fixed inset-0 h-screen w-full grid place-items-center">
 		<div class="rotating-circles fixed inset-0 h-screen w-full grid place-items-center -z-20">
 			<div
@@ -17,7 +19,7 @@
 			>
 				<svg viewBox="0 0 200 200">
 					<g class="fill-transparent stroke-1 stroke-slate-900">
-						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
+						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)"></path>
 					</g>
 				</svg>
 			</div>
@@ -26,7 +28,7 @@
 			>
 				<svg viewBox="0 0 200 200" class="-rotate-45">
 					<g class="fill-transparent stroke-1 stroke-slate-900">
-						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
+						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)"></path>
 					</g>
 				</svg>
 			</div>
@@ -35,7 +37,7 @@
 			>
 				<svg viewBox="0 0 200 200" class="rotate-90">
 					<g class="fill-transparent stroke-1 stroke-slate-900">
-						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)" />
+						<path d="M 0 100 A 100 100 0 1 1 50 188" transform="translate(1 1) scale(0.98)"></path>
 					</g>
 				</svg>
 			</div>
@@ -43,27 +45,27 @@
 		<div
 			class="shooting-stars inset-0 h-[50vh] w-[150%] grid place-items-center -translate-y-[50%] -rotate-45 lg:-translate-y-[25%] lg:-translate-x-[20%] lg:z-0 lg:h-[200vh]"
 		>
-			{#each Array.from(Array(20)) as _}
-				<div class="star" />
+			{#each Array.from(Array(20)) as _, i (i)}
+				<div class="star"></div>
 			{/each}
 		</div>
 	</div>
 	<div
 		class="fixed bg-white w-full h-full z-1 inset-y-0 transition-slow opacity-0"
 		class:opacity-100={pgPos > 1.5}
-	/>
+	></div>
 	<div
 		class="fixed bg-[#282828] w-full h-full z-1 inset-y-0 transition-slow opacity-0"
 		class:opacity-100={pgPos > 2.5}
-	/>
+	></div>
 	<div
 		class="fixed bg-black w-full h-full z-1 inset-y-0 transition-slow opacity-0"
 		class:opacity-100={pgPos > 3.5}
-	/>
+	></div>
 	<div
 		class="fixed bg-[#d6eaff] w-full h-full z-1 inset-y-0 transition-slow opacity-0"
 		class:opacity-100={pgPos > 4.5}
-	/>
+	></div>
 </div>
 
 <main id="home" class="hero h-screen relative snap-start">
@@ -144,7 +146,7 @@
 			</div>
 		</div>
 	</div>
-	<footer />
+	<footer></footer>
 </main>
 <section id="icarus" class="h-screen w-full snap-start snap-always">
 	<div class="container grid place-items-center max-w-full h-full bg-opacity-0">
@@ -161,10 +163,8 @@
 <section id="crystallize" class="h-screen w-full snap-start snap-always">
 	<div class="container grid place-items-center max-w-full h-full">
 		<svg height="100" width="100" class="border-white border-2" style="grid-area: 1 / 1 / 1 / 1;">
-			<polygon
-				points="50,0 100,30 100,70 50,100 0,70 0,25"
-				class="fill-none stroke-white stroke-1"
-			/>
+			<polygon points="50,0 100,30 100,70 50,100 0,70 0,25" class="fill-none stroke-white stroke-1"
+			></polygon>
 		</svg>
 		<div style="grid-area: 1 / 1 / 1 / 1;">
 			<a href="crystallize">
@@ -177,7 +177,7 @@
 <section id="hikaru" class="h-screen w-full snap-start snap-always">
 	<div class="container grid place-items-center max-w-full h-full">
 		<div>
-			<p />
+			<p></p>
 			<a href="hikaru">hikaru</a>
 		</div>
 	</div>
@@ -185,12 +185,15 @@
 
 <svg class="w-0 h-0">
 	<filter id="grain">
-		<feTurbulence type="turbulence" baseFrequency="0.5" stitchTiles="stitch" />
-		<feColorMatrix type="saturate" values="0" result="grain" />
+		<feTurbulence type="turbulence" baseFrequency="0.5" stitchTiles="stitch"></feTurbulence>
+
+		<feColorMatrix type="saturate" values="0" result="grain"></feColorMatrix>
 	</filter>
 </svg>
 
 <style lang="scss">
+	@use 'sass:math';
+
 	:global(html) {
 		scroll-snap-type: y mandatory;
 	}
@@ -334,11 +337,15 @@
 
 	.decorations {
 		.animate {
-			animation: blurToBlur 500ms ease-out both, rotate 5s linear infinite;
+			animation:
+				blurToBlur 500ms ease-out both,
+				rotate 5s linear infinite;
 		}
 
 		.animate-reverse {
-			animation: blurToBlur 500ms ease-out both, rotate 5s linear infinite reverse;
+			animation:
+				blurToBlur 500ms ease-out both,
+				rotate 5s linear infinite reverse;
 		}
 
 		.star {
@@ -360,7 +367,8 @@
 			@media (min-width: 1024px) {
 				filter: drop-shadow(0 0 6px $color-w) blur(2px);
 			}
-			animation: tail $shooting-time ease-in-out infinite reverse,
+			animation:
+				tail $shooting-time ease-in-out infinite reverse,
 				shooting $shooting-time ease-in-out infinite reverse;
 
 			&::before {
@@ -399,9 +407,9 @@
 
 			@for $i from 1 through 20 {
 				&:nth-child(#{$i}) {
-					$delay: random(10000) + 30ms;
-					top: calc(50% - #{random(400) - 200px});
-					left: calc(50% - #{random(300) + 0px});
+					$delay: math.random(10000) + 30ms;
+					top: calc(50% - #{math.random(400) - 200px});
+					left: calc(50% - #{math.random(300) + 0px});
 					animation-delay: $delay;
 
 					&::before,

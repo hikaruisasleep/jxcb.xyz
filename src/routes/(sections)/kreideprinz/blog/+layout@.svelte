@@ -1,9 +1,9 @@
 <script lang="ts">
-	import '$lib/styles/scss.scss';
-	import '$lib/styles/tailwind.postcss';
-	import '$lib/styles/prism-gruvbox-dark.css';
+	import '#lib/styles/scss.scss';
+	import '#lib/styles/tailwind.postcss';
+	import '#lib/styles/prism-gruvbox-dark.css';
 
-	import Nav from '$lib/components/kreideprinz/Nav.svelte';
+	import Nav from '#lib/components/kreideprinz/Nav.svelte';
 </script>
 
 <svelte:head>

@@ -6,7 +6,7 @@
 		preloadData: boolean;
 </script>
 
-<a href={link} data-sveltekit-preload-data={preloadData ? 'hover' : 'off'}>
+<a href={link} data-sveltekit-preload-data={preloadData ? 'hover' : false}>
 	<div
 		class="min-w-full bg-gruvfg aspect-[12/1] grid grid-rows-3 grid-cols-2 place-items-center px-4 py-3"
 	>

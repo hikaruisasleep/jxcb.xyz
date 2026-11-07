@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data: { title: string; date: Date; content: any };
+	import type { Component } from 'svelte';
+
+	export let data: { title: string; date: Date; content: Component };
 	let { title, date, content } = data;
 </script>
 

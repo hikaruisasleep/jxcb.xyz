@@ -3,6 +3,7 @@ node_modules
 /build
 /.svelte-kit
 /package
+src/lib/posts/obsidian-vaults
 .env
 .env.*
 !.env.example

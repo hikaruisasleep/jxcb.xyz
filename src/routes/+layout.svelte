@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '$lib/styles/scss.scss';
-	import '$lib/styles/tailwind.postcss';
-	import { page } from '$app/stores';
+	import '#lib/styles/scss.scss';
+	import '#lib/styles/tailwind.postcss';
+	import { page } from '$app/state';
 
 	let title: string | undefined = 'jxcb';
 
@@ -14,8 +14,8 @@
 		return start > 0 || end < str.length ? str.substring(start, end) : str;
 	}
 
-	if ($page.url.pathname.split('/').length > 2) {
-		let subpages = trim($page.url.pathname, '/').replaceAll('/', '.');
+	if (page.url.pathname.split('/').length > 2) {
+		let subpages = trim(page.url.pathname, '/').replaceAll('/', '.');
 		title = `jxcb | ${subpages}`;
 	}
 </script>
@@ -26,4 +26,4 @@
 	<meta name="description" content="jxcb's personal website" />
 </svelte:head>
 
-<slot />
+<slot></slot>

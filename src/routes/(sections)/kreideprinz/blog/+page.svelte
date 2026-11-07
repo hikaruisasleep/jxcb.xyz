@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Postcard from '$lib/components/kreideprinz/Postcard.svelte';
+	import Postcard from '#lib/components/kreideprinz/Postcard.svelte';
 
 	export let data: { ret: { title: string; link: string; date: Date; description: string }[] };
 </script>
 
 <div class="flex flex-col gap-4">
-	{#each data.ret as post, i}
+	{#each data.ret as post, i (post.link)}
 		{#if i < 2}
 			<Postcard
 				link={post.link}

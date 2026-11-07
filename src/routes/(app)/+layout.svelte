@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '$lib/styles/tailwind.postcss';
-	import '$lib/styles/scss.scss';
-	import Header from '$lib/components/Header.svelte';
+	import '#lib/styles/tailwind.postcss';
+	import '#lib/styles/scss.scss';
+	import Header from '#lib/components/Header.svelte';
 </script>
 
 <div class="container bg-slate-50 h-screen min-w-full">

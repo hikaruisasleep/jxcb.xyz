@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '$lib/styles/scss.scss';
-	import '$lib/styles/tailwind.postcss';
+	import '#lib/styles/scss.scss';
+	import '#lib/styles/tailwind.postcss';
 </script>
 
 <div class="container bg-slate-50 min-w-full">
