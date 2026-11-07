@@ -1,3 +1,5 @@
+<svelte:options runes={false} />
+
 <script lang="ts">
 	export let title: string,
 		description: string,

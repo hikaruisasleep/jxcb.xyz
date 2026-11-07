@@ -1,3 +1,5 @@
+<svelte:options runes={false} />
+
 <script lang="ts">
 	import Postcard from '#lib/components/kreideprinz/Postcard.svelte';
 

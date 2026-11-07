@@ -1,3 +1,5 @@
+<svelte:options runes={false} />
+
 <script lang="ts">
 	let yPos = 0;
 	let pgHeight = 0;

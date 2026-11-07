@@ -1,3 +1,5 @@
+<svelte:options runes={false} />
+
 <script lang="ts">
 	import '#lib/styles/tailwind.postcss';
 	import '#lib/styles/scss.scss';

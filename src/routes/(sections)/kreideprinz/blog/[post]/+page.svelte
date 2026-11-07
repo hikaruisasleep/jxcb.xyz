@@ -1,3 +1,5 @@
+<svelte:options runes={false} />
+
 <script lang="ts">
 	import type { Component } from 'svelte';
 
@@ -34,29 +36,31 @@
 		color: $gruv-orange2;
 	}
 
-	.text-gruvgray2 {
-		color: $gruv-gray2;
-	}
-
 	:global {
 		main {
 			blockquote {
-				@apply text-gruvgray;
-				@apply italic;
-				@apply text-left;
-				@apply text-sm;
-				@apply my-2;
+				color: $gruv-gray1;
+				font-style: italic;
+				text-align: left;
+				font-size: 0.875rem;
+				line-height: 1.25rem;
+				margin-top: 0.5rem;
+				margin-bottom: 0.5rem;
 			}
 			h3 {
-				@apply text-xl;
-				@apply text-gruvgray2;
-				@apply my-2;
-				@apply font-bold;
+				font-size: 1.25rem;
+				line-height: 1.75rem;
+				color: $gruv-gray2;
+				margin-top: 0.5rem;
+				margin-bottom: 0.5rem;
+				font-weight: 700;
 			}
 			h2 {
-				@apply text-lg;
-				@apply my-2;
-				@apply font-bold;
+				font-size: 1.125rem;
+				line-height: 1.75rem;
+				margin-top: 0.5rem;
+				margin-bottom: 0.5rem;
+				font-weight: 700;
 			}
 			a {
 				color: $gruv-blue2;
@@ -66,7 +70,8 @@
 				}
 			}
 			code {
-				@apply text-xs;
+				font-size: 0.75rem;
+				line-height: 1rem;
 			}
 		}
 	}
