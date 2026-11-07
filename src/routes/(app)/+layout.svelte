@@ -1,15 +1,18 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
 	import '#lib/styles/tailwind.postcss';
 	import '#lib/styles/scss.scss';
 	import Header from '#lib/components/Header.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <div class="container bg-slate-50 h-screen min-w-full">
 	<Header />
 	<main>
-		<slot />
+		{@render children?.()}
 	</main>
 </div>
 

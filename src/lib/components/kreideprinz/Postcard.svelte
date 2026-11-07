@@ -1,11 +1,13 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
-	export let title: string,
-		description: string,
-		link: string,
-		date: Date | undefined = undefined,
+	interface Props {
+		title: string;
+		description: string;
+		link: string;
+		date?: Date | undefined;
 		preloadData: boolean;
+	}
+
+	let { title, description, link, date = undefined, preloadData }: Props = $props();
 </script>
 
 <a href={link} data-sveltekit-preload-data={preloadData ? 'hover' : false}>

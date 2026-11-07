@@ -1,11 +1,12 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
 	import '#lib/styles/scss.scss';
 	import '#lib/styles/tailwind.postcss';
 	import { page } from '$app/state';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
 
-	let title: string | undefined = 'jxcb';
+	let { children }: Props = $props();
 
 	function trim(str: string, ch: string) {
 		let start = 0;
@@ -16,10 +17,11 @@
 		return start > 0 || end < str.length ? str.substring(start, end) : str;
 	}
 
-	if (page.url.pathname.split('/').length > 2) {
-		let subpages = trim(page.url.pathname, '/').replaceAll('/', '.');
-		title = `jxcb | ${subpages}`;
-	}
+	let title = $derived(
+		page.url.pathname.split('/').length > 2
+			? `jxcb | ${trim(page.url.pathname, '/').replaceAll('/', '.')}`
+			: 'jxcb'
+	);
 </script>
 
 <svelte:head>
@@ -28,4 +30,4 @@
 	<meta name="description" content="jxcb's personal website" />
 </svelte:head>
 
-<slot></slot>
+{@render children?.()}

@@ -1,5 +1,3 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
 	import '#lib/styles/scss.scss';
 	import '#lib/styles/tailwind.postcss';
@@ -7,6 +5,11 @@
 	import { page } from '$app/state';
 
 	import Nav from '#lib/components/kreideprinz/Nav.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <div class="container h-[100dvh] min-w-full px-4">
@@ -17,7 +20,7 @@
 		<Nav />
 	</header>
 
-	<div class="text-gruvfg"><slot></slot></div>
+	<div class="text-gruvfg">{@render children?.()}</div>
 </div>
 
 <style lang="scss">

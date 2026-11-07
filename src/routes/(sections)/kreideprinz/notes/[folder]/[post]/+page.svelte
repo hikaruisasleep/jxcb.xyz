@@ -1,10 +1,15 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
 	import type { Component } from 'svelte';
 
-	export let data: { content: Component; title: string; folder: string };
-	let { content, title, folder } = data;
+	interface Props {
+		data: { content: Component; title: string; folder: string };
+	}
+
+	let { data }: Props = $props();
+
+	const title = $derived(data.title);
+	const folder = $derived(data.folder);
+	const SvelteComponent = $derived(data.content);
 </script>
 
 <main>
@@ -13,7 +18,7 @@
 		<h2 class="text-gruvgray text-sm font-extralight">{folder}</h2>
 	</div>
 	<div class="text-sm text-justify">
-		<svelte:component this={content} />
+		<SvelteComponent />
 	</div>
 </main>
 

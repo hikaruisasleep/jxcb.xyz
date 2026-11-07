@@ -1,10 +1,15 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
 	import type { Component } from 'svelte';
 
-	export let data: { title: string; date: Date; content: Component };
-	let { title, date, content } = data;
+	interface Props {
+		data: { title: string; date: Date; content: Component };
+	}
+
+	let { data }: Props = $props();
+
+	const title = $derived(data.title);
+	const date = $derived(data.date);
+	const SvelteComponent = $derived(data.content);
 </script>
 
 <main>
@@ -23,7 +28,7 @@
 		</h2>
 	</div>
 	<div class="text-sm text-justify">
-		<svelte:component this={content} />
+		<SvelteComponent />
 	</div>
 </main>
 

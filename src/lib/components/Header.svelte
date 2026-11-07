@@ -1,9 +1,11 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
-	export let pageName: string | undefined = undefined;
+	interface Props {
+		pageName?: string | undefined;
+	}
 
-	let showNav: boolean = false;
+	let { pageName = undefined }: Props = $props();
+
+	let showNav: boolean = $state(false);
 </script>
 
 <header
@@ -30,8 +32,8 @@
 		role="button"
 		tabindex="0"
 		aria-label="Toggle navigation"
-		on:click={() => (showNav = !showNav)}
-		on:keypress={() => (showNav = !showNav)}
+		onclick={() => (showNav = !showNav)}
+		onkeypress={() => (showNav = !showNav)}
 	></div>
 	<nav
 		class="overflow-hidden transition-all duration-500 lg:h-auto p-0 -mt-2 sm:m-0 navigation"

@@ -1,11 +1,14 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
 	import '#lib/styles/scss.scss';
 	import '#lib/styles/tailwind.postcss';
 	import '#lib/styles/prism-gruvbox-dark.css';
 
 	import Nav from '#lib/components/kreideprinz/Nav.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -26,7 +29,7 @@
 	</header>
 
 	<div class="text-gruvfg w-[80vw] lg:w-[75ch] mx-auto">
-		<slot />
+		{@render children?.()}
 	</div>
 </div>
 

@@ -1,9 +1,11 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
 	import Postcard from '#lib/components/kreideprinz/Postcard.svelte';
 
-	export let data: { ret: { title: string; link: string; date: Date; description: string }[] };
+	interface Props {
+		data: { ret: { title: string; link: string; date: Date; description: string }[] };
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <div class="flex flex-col gap-4">

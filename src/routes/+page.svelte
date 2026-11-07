@@ -1,10 +1,8 @@
-<svelte:options runes={false} />
-
 <script lang="ts">
-	let yPos = 0;
-	let pgHeight = 0;
-	$: pgPos = pgHeight > 0 ? Math.floor((yPos / pgHeight) * 10) / 10 + 1 : 1;
-	$: heroIntersection = pgPos < 1.5;
+	let yPos = $state(0);
+	let pgHeight = $state(0);
+	let pgPos = $derived(pgHeight > 0 ? Math.floor((yPos / pgHeight) * 10) / 10 + 1 : 1);
+	let heroIntersection = $derived(pgPos < 1.5);
 </script>
 
 <svelte:window bind:scrollY={yPos} bind:innerHeight={pgHeight} />
